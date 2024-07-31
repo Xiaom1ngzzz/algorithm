@@ -31,13 +31,13 @@ func superpalindromesInRange(left string, right string) int {
 
 	for {
 		// seed生成偶数长度回文数字
-		// 123 -> 12321
+		// 123 -> 123321
 		num = evenEnlarge(seed)
 		if check(num*num, l, r) {
 			ans++
 		}
 		// seed生成奇数长度回文数字
-		// 123 -> 123321
+		// 123 -> 12321
 		num = oddEnlarge(seed)
 		if check(num*num, l, r) {
 			ans++
@@ -75,8 +75,8 @@ func oddEnlarge(seed int64) int64 {
 }
 
 // 判断ans是不是属于[l,r]且是不是回文数字
-func check(ans, l, r int64) bool {
-	return ans >= l && ans <= r && isPalindrome(ans)
+func check(num, l, r int64) bool {
+	return num <= r && num >= l && isPalindrome(num)
 }
 
 func isPalindrome(num int64) bool {
